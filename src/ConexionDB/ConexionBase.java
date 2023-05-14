@@ -21,7 +21,7 @@ public class ConexionBase {
     ResultSet resultado = null;
     
     public ConexionBase(){
-        String url = "jdbc:ucanaccess://C:/Users/perry/Downloads/Programita/PERSONAL1.accdb";
+        String url = "jdbc:ucanaccess://C:\\Users\\herna\\Downloads\\PERSONAL1.accdb";
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             conectar = DriverManager.getConnection(url);

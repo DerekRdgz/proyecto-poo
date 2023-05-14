@@ -29,7 +29,7 @@ public class Reportes extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        reporteCompras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -48,7 +48,7 @@ public class Reportes extends javax.swing.JFrame {
                 rep_semanalActionPerformed(evt);
             }
         });
-        getContentPane().add(rep_semanal, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 24, -1, -1));
+        getContentPane().add(rep_semanal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
         rep_mensual.setText("reporte mensual");
         rep_mensual.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +64,7 @@ public class Reportes extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
 
         jButton2.setText("Reporte Ingresos");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +72,7 @@ public class Reportes extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         jButton3.setText("reporte por tipo de gasto");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -80,10 +80,15 @@ public class Reportes extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        jButton4.setText("reporte de compras");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        reporteCompras.setText("reporte de compras");
+        reporteCompras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reporteComprasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(reporteCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -170,6 +175,21 @@ public class Reportes extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void reporteComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteComprasActionPerformed
+        //JTextField field1 = new JTextField();
+        //JTextField field2 = new JTextField();
+        
+        //Object[] fields = {"ingresa si quieres el reporte diario(0)\n semanal(1)\n mensual(2)",field1, "ingresa el tipo de gasto a buscar", field2};
+
+        //JOptionPane.showConfirmDialog(null, fields, "buscador tipo de gasto", JOptionPane.OK_CANCEL_OPTION);
+        //int temp1 = Integer.parseInt(field1.getText());
+        //String temp2 = field2.getText();
+        
+        GeneradorReportesCompras reportegasto = new GeneradorReportesCompras();
+        reportegasto.obtenercompras();
+        
+    }//GEN-LAST:event_reporteComprasActionPerformed
+
     
     
     
@@ -214,9 +234,9 @@ public class Reportes extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton rep_diario;
     private javax.swing.JButton rep_mensual;
     private javax.swing.JButton rep_semanal;
+    private javax.swing.JButton reporteCompras;
     // End of variables declaration//GEN-END:variables
 }
