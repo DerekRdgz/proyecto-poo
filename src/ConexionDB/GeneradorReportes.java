@@ -4,7 +4,11 @@
  */
 package ConexionDB;
 
+import java.io.BufferedOutputStream;
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
 import java.sql.*;
+import java.util.Scanner;
 import javax.swing.*;
 
 
@@ -21,7 +25,7 @@ public class GeneradorReportes {
         }
     }
 
-    public void obtenerGastosDiarios(int num, int queseando) {
+    public void obtenerGastosDiarios(int num, int periodo) {
         
         String  [] temp;
          temp = new String[4];
@@ -32,7 +36,7 @@ public class GeneradorReportes {
          temp [3] = "SELECT id_ingreso, tipo_ingreso, monto_ingreso FROM INGRESOSMENSUALES";
          
          String [] [] temp2;
-         temp2 = new String[4][3];
+         temp2 = new String[4][3];  
          temp2[0][0] = "id_gasto_d"; 
          temp2[0][1] = "tipo_gasto_d"; 
          temp2[0][2] = "gasto_d"; 
@@ -47,23 +51,45 @@ public class GeneradorReportes {
          temp2[3][2] = "monto_ingreso"; 
         
         try {
-            String SQLSeleccionar= temp[queseando];
+            String SQLSeleccionar= temp[periodo];
             PreparedStatement pst = con1.prepareStatement(SQLSeleccionar);
 
             ResultSet rs = pst.executeQuery();
+            
+            boolean idencontrado = false;
 
             while (rs.next()) {
-                String idIngreso = rs.getString(temp2[queseando][0]);
+                String idIngreso = rs.getString(temp2[periodo][0]);
                 int i = Integer.parseInt(idIngreso);
+
                 if (num == i) {
-                    String tipoIngreso = rs.getString(temp2[queseando][1]);
-                    String montoIngreso = rs.getString(temp2[queseando][2]);
+                    idencontrado = true;
+                    
+                    String tipoIngreso = rs.getString(temp2[periodo][1]);
+                    String montoIngreso = rs.getString(temp2[periodo][2]);
 
                     System.out.println("ID : " + idIngreso);
                     System.out.println("Tipo : " + tipoIngreso);
                     System.out.println("Monto : " + montoIngreso);
+                    
+                BufferedOutputStream bos= new BufferedOutputStream(new FileOutputStream("Reportes.txt"));
+                //BufferedOutputStream bos= new BufferedOutputStream(new FileOutputStream("PruebaP.pdf"));
+
+                DataOutputStream dos= new DataOutputStream(bos);
+                Scanner scanner = new Scanner(System.in);
+                dos.writeUTF("ID:" + idIngreso + 
+                             "\n Tipo: " + tipoIngreso + 
+                             "\n Monto: " + montoIngreso);
+                dos.close();
+                    System.out.println("Recibo impreso");
+                         
                 }
+                
             }
+            if (idencontrado == false) {
+                System.out.println("No hay datos de este tipo.");
+            }
+
             rs.close();
             pst.close();
             con1.close();
