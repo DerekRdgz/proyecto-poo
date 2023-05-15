@@ -7,11 +7,16 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class DatosPersonales extends javax.swing.JFrame {
 
     public DatosPersonales() {
         initComponents();
+        setLocationRelativeTo(null);
+        
+        MostrarDatos();
+        MostrarRegistroT();
     }
 
     @SuppressWarnings("unchecked")
@@ -57,208 +62,272 @@ public class DatosPersonales extends javax.swing.JFrame {
         fac_vent = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        btngualdar1 = new javax.swing.JButton();
+        btngualdar2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabla = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 153));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("ingresa nueva entrada a almacen");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 190, -1));
+        jLabel1.setFont(new java.awt.Font("Century", 1, 24)); // NOI18N
+        jLabel1.setText("Ingresar una nueva entrada al almacén");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 470, -1));
 
-        jLabel2.setText("id producto");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel2.setText("ID del Producto");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 100, -1));
 
         id_producto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 id_productoActionPerformed(evt);
             }
         });
-        getContentPane().add(id_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 180, -1));
+        getContentPane().add(id_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 180, -1));
 
-        jLabel3.setText("nombre del producto");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel3.setText("Nombre del Producto");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
 
         nom_pro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nom_proActionPerformed(evt);
             }
         });
-        getContentPane().add(nom_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 180, -1));
+        getContentPane().add(nom_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 180, -1));
 
-        jLabel4.setText("cantidad comprada");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel4.setText("Cantidad Comprada");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
 
         cant_comp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cant_compActionPerformed(evt);
             }
         });
-        getContentPane().add(cant_comp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 180, -1));
+        getContentPane().add(cant_comp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 180, -1));
 
-        jLabel5.setText("cantidad vendida");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel5.setText("Cantidad Vendida");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, -1));
 
         cant_vent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cant_ventActionPerformed(evt);
             }
         });
-        getContentPane().add(cant_vent, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 180, -1));
+        getContentPane().add(cant_vent, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 180, -1));
 
-        jLabel6.setText("costo de compra");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+        jLabel6.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel6.setText("Costo de Compra");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
 
         cost_comp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cost_compActionPerformed(evt);
             }
         });
-        getContentPane().add(cost_comp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 180, -1));
+        getContentPane().add(cost_comp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 180, -1));
 
-        jLabel7.setText("costo de venta");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
+        jLabel7.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel7.setText("Costo de Venta");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, -1));
 
         cost_vent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cost_ventActionPerformed(evt);
             }
         });
-        getContentPane().add(cost_vent, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 180, -1));
+        getContentPane().add(cost_vent, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 180, -1));
 
+        btngualdar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btngualdar.setText("Guardar Datos");
         btngualdar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btngualdarActionPerformed(evt);
             }
         });
-        getContentPane().add(btngualdar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 620, -1, -1));
+        getContentPane().add(btngualdar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 430, 120, 30));
 
-        jLabel8.setText("mermas del producto");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        jLabel8.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel8.setText("Mermas del Producto");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
 
         mermas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mermasActionPerformed(evt);
             }
         });
-        getContentPane().add(mermas, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 180, -1));
+        getContentPane().add(mermas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 180, -1));
 
-        jLabel9.setText("unidad de medida");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
+        jLabel9.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel9.setText("Unidad de Medida");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, -1, -1));
 
         uni_med.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 uni_medActionPerformed(evt);
             }
         });
-        getContentPane().add(uni_med, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 180, -1));
+        getContentPane().add(uni_med, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 180, -1));
 
-        jLabel10.setText("fecha de compra");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
+        jLabel10.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel10.setText("Fecha de Compra");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
 
         fech_comp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fech_compActionPerformed(evt);
             }
         });
-        getContentPane().add(fech_comp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 180, -1));
+        getContentPane().add(fech_comp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 180, -1));
 
-        jLabel11.setText("fecha de venta");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
+        jLabel11.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel11.setText("Fecha  de Venta");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, -1));
 
         fech_vent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fech_ventActionPerformed(evt);
             }
         });
-        getContentPane().add(fech_vent, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 180, -1));
+        getContentPane().add(fech_vent, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, 180, -1));
 
-        jLabel12.setText("factura de compra");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
+        jLabel12.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel12.setText("Factura de Compras");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, -1));
 
         fac_comp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fac_compActionPerformed(evt);
             }
         });
-        getContentPane().add(fac_comp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 180, -1));
+        getContentPane().add(fac_comp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 180, -1));
 
-        jLabel15.setText("incremento de compra%");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
+        jLabel15.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel15.setText("Incremento de Compra %");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, 150, -1));
 
         incre_comp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 incre_compActionPerformed(evt);
             }
         });
-        getContentPane().add(incre_comp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 180, -1));
+        getContentPane().add(incre_comp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 180, -1));
 
-        jLabel16.setText("incremento de venta%");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, -1, -1));
+        jLabel16.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel16.setText("Incremento de Venta %");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 510, -1, -1));
 
         incre_vent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 incre_ventActionPerformed(evt);
             }
         });
-        getContentPane().add(incre_vent, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, 180, -1));
+        getContentPane().add(incre_vent, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, 180, -1));
 
-        jLabel17.setText("alamcen");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, -1, -1));
+        jLabel17.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel17.setText("Almacén");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 540, -1, -1));
 
         almacen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 almacenActionPerformed(evt);
             }
         });
-        getContentPane().add(almacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 530, 180, -1));
+        getContentPane().add(almacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 180, -1));
 
-        jLabel18.setText("devoluciones");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, -1, -1));
+        jLabel18.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel18.setText("Devoluciones");
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 570, -1, -1));
 
         devol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 devolActionPerformed(evt);
             }
         });
-        getContentPane().add(devol, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 560, 180, -1));
+        getContentPane().add(devol, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, 180, -1));
 
-        jLabel19.setText("tipo de pago");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, -1, -1));
+        jLabel19.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel19.setText("Tipo de Pago");
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 600, -1, -1));
 
         tipo_pago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tipo_pagoActionPerformed(evt);
             }
         });
-        getContentPane().add(tipo_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 590, 180, -1));
+        getContentPane().add(tipo_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 590, 180, -1));
 
+        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton1.setText("Menu");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 620, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 480, -1, -1));
 
         ganancia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gananciaActionPerformed(evt);
             }
         });
-        getContentPane().add(ganancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 180, -1));
+        getContentPane().add(ganancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 180, -1));
 
         fac_vent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fac_ventActionPerformed(evt);
             }
         });
-        getContentPane().add(fac_vent, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 180, -1));
+        getContentPane().add(fac_vent, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 180, -1));
 
-        jLabel13.setText("factura de venta");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
+        jLabel13.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel13.setText("Factura de Venta");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, -1, -1));
 
-        jLabel14.setText("ganancia");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, -1, -1));
+        jLabel14.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        jLabel14.setText("Ganancia");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, -1, -1));
+
+        btngualdar1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btngualdar1.setText("Modificar Datos");
+        btngualdar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btngualdar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btngualdar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 430, -1, -1));
+
+        btngualdar2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btngualdar2.setText("Nuevo");
+        btngualdar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btngualdar2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btngualdar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, -1, -1));
+
+        Tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        Tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(Tabla);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 620, 760, 240));
 
         pack();
         setLocationRelativeTo(null);
@@ -323,10 +392,12 @@ public class DatosPersonales extends javax.swing.JFrame {
                     pst.setString(17,devol.getText());
                     pst.setString(18,tipo_pago.getText());
                     int n = pst.executeUpdate();
-                    
+                    pst.close();
                 if (n>0){
                     JOptionPane.showMessageDialog(null,"Datos guardados correctamente");
-                    pst.close();
+                    limpiar();
+                    MostrarDatos();
+                    MostrarRegistroT();
                 }
                     
                     
@@ -336,8 +407,77 @@ public class DatosPersonales extends javax.swing.JFrame {
                 
             }
         }
+        
     }//GEN-LAST:event_btngualdarActionPerformed
-
+    public void MostrarDatos(){
+     DefaultTableModel TablaD= (DefaultTableModel)Tabla.getModel();
+     String EncabezadoT[]={"ID Producto","Nombre","Cantidad comprada","Cantidad vendida","Costo de compra","Costo de venta","Mermas","Unidad de medida","Fecha de compra","Fecha de venta","Factura de compra","Incremento de compra ","Incremento de venta ","Almacen","Devoluciones","Tipo de pago"};
+     TablaD= new DefaultTableModel(null,EncabezadoT);
+     Tabla.setModel(TablaD);
+    }
+     public void MostrarRegistroT(){
+     try{
+         Connection Conex=null;
+         DefaultTableModel lamismatabla= (DefaultTableModel)Tabla.getModel();
+         ConexionBase conectame = new ConexionBase();
+         Conex=conectame.getConnection();
+         String Registro[]=new String[16];
+         String SQL="Select * from PERSONAL";
+         Statement sentencia=Conex.createStatement();
+         ResultSet rst=sentencia.executeQuery(SQL);
+         while(rst.next()){
+             Registro[0]=rst.getString("id_producto");
+             Registro[1]=rst.getString("nom_pro");
+             Registro[2]=rst.getString("cant_comp");
+             Registro[3]=rst.getString("cant_vent");
+             Registro[4]=rst.getString("cost_comp");
+             Registro[5]=rst.getString("cost_vent");
+             Registro[6]=rst.getString("mermas");
+             Registro[7]=rst.getString("uni_med");
+             Registro[8]=rst.getString("fech_comp");
+             Registro[9]=rst.getString("fech_vent");
+             Registro[10]=rst.getString("fac_comp");
+             Registro[11]=rst.getString("incre_comp");
+             Registro[12]=rst.getString("incre_vent");
+             Registro[13]=rst.getString("almacen");
+             Registro[14]=rst.getString("devol");
+             Registro[15]=rst.getString("tipo_pago");
+             lamismatabla.addRow(Registro);
+             
+         
+     }
+         Tabla.setModel(lamismatabla);   
+     }
+     catch(Exception e){
+         JOptionPane.showMessageDialog(null, "Se ha producido un error al cargar los datos de la tabla"+e);
+         
+         
+     }
+     
+ }
+     public void limpiar(){
+     this.id_producto.setText("");
+     this.nom_pro.setText("");
+     this.cant_comp.setText("");
+     this.cant_vent.setText("");
+     this.cost_comp.setText("");
+     this.cost_vent.setText("");
+     this.mermas.setText("");
+     this.uni_med.setText("");
+     this.fech_comp.setText("");
+     this.fech_vent.setText("");
+     this.fac_comp.setText("");
+     this.incre_comp.setText("");
+     this.incre_vent.setText("");
+     this.almacen.setText("");
+     this.devol.setText("");
+     this.tipo_pago.setText("");
+     this.id_producto.requestFocus();
+     
+     
+     
+     
+ }
     private void mermasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mermasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mermasActionPerformed
@@ -395,6 +535,88 @@ public class DatosPersonales extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fac_ventActionPerformed
 
+    private void btngualdar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngualdar1ActionPerformed
+        // Boton Modificar
+        int fila= this.Tabla.getSelectedRow();
+        if(fila==-1){
+            JOptionPane.showMessageDialog(this,"Para Actualizar un dato debe seleccionarlo primero" ); 
+        }
+        else{
+            try{
+                Connection con2= null;
+                ConexionBase conectado = new ConexionBase();
+                con2=conectado.getConnection();
+                Statement st=con2.createStatement();
+                String SQLModifica="UPDATE PERSONAL SET nom_pro = ? , cant_comp = ? , cant_vent = ?, cost_comp = ?, cost_vent = ?, mermas = ? , uni_med = ?, fech_comp = ?, fech_vent = ?, fac_comp = ?, incre_comp = ?, incre_vent = ?, almacen = ?, devol = ?, tipo_pago = ? WHERE id_producto = ?";
+                PreparedStatement pst = con2.prepareStatement(SQLModifica);
+                pst.setInt(16,Integer.parseInt(id_producto.getText()));
+                pst.setString(1, nom_pro.getText());
+                pst.setString(2, cant_comp.getText());
+                pst.setString(3, cant_vent.getText());
+                pst.setString(4, cost_comp.getText());
+                pst.setString(5, cost_vent.getText());
+                pst.setString(6, mermas.getText());
+                pst.setString(7, uni_med.getText());
+                pst.setString(8, fech_comp.getText());
+                pst.setString(9, fech_vent.getText());
+                pst.setString(10, fac_comp.getText());
+                pst.setString(11, incre_comp.getText());
+                pst.setString(12, incre_vent.getText());
+                pst.setString(13, almacen.getText());
+                pst.setString(14, devol.getText());
+                pst.setString(15, tipo_pago.getText());
+                int s=pst.executeUpdate();
+                pst.close();
+                
+                if(s>0){
+                    JOptionPane.showMessageDialog(this, "Datos Actualizados Correctamente");
+                    
+                }
+      
+            }
+
+            catch(Exception e){
+                JOptionPane.showMessageDialog(this, "Error al actualizar los datos"+e);
+                
+                
+            }
+            DatosPersonales dp = new DatosPersonales();
+            dp.setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btngualdar1ActionPerformed
+
+    private void btngualdar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngualdar2ActionPerformed
+        limpiar();
+    }//GEN-LAST:event_btngualdar2ActionPerformed
+
+    private void TablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaMouseClicked
+        try{
+            int fila= Tabla.getSelectedRow();
+            this.id_producto.setText(Tabla.getValueAt(fila,0).toString());
+            this.nom_pro.setText(Tabla.getValueAt(fila,1).toString());
+            this.cant_comp.setText(Tabla.getValueAt(fila,2).toString());
+            this.cant_vent.setText(Tabla.getValueAt(fila,3).toString());
+            this.cost_comp.setText(Tabla.getValueAt(fila,4).toString());
+            this.cost_vent.setText(Tabla.getValueAt(fila,5).toString());
+            this.mermas.setText(Tabla.getValueAt(fila,6).toString());
+            this.uni_med.setText(Tabla.getValueAt(fila,7).toString());
+            this.fech_comp.setText(Tabla.getValueAt(fila,8).toString());
+            this.fech_vent.setText(Tabla.getValueAt(fila,9).toString());
+            this.fac_comp.setText(Tabla.getValueAt(fila,10).toString());
+            this.incre_comp.setText(Tabla.getValueAt(fila,11).toString());
+            this.incre_vent.setText(Tabla.getValueAt(fila,12).toString());
+            this.almacen.setText(Tabla.getValueAt(fila,13).toString());
+            this.devol.setText(Tabla.getValueAt(fila,14).toString());
+            this.tipo_pago.setText(Tabla.getValueAt(fila,15).toString());
+
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error al selecionar datos"+e );
+
+        }
+    }//GEN-LAST:event_TablaMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -431,8 +653,11 @@ public class DatosPersonales extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tabla;
     private javax.swing.JTextField almacen;
     private javax.swing.JButton btngualdar;
+    private javax.swing.JButton btngualdar1;
+    private javax.swing.JButton btngualdar2;
     private javax.swing.JTextField cant_comp;
     private javax.swing.JTextField cant_vent;
     private javax.swing.JTextField cost_comp;
@@ -466,9 +691,11 @@ public class DatosPersonales extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField mermas;
     private javax.swing.JTextField nom_pro;
     private javax.swing.JTextField tipo_pago;
     private javax.swing.JTextField uni_med;
     // End of variables declaration//GEN-END:variables
+
 }

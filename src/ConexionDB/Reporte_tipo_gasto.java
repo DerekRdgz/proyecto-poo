@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 
 /**
  *
- * @author herna
+ * @author Derek
  */
 public class Reporte_tipo_gasto {
          private ConexionBase conectado;

@@ -3,7 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ConexionDB;
+import java.io.BufferedOutputStream;
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
 import java.sql.*;
+import java.util.Scanner;
 import javax.swing.*;
 public class Reportes extends javax.swing.JFrame {
 
@@ -30,65 +34,77 @@ public class Reportes extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         reporteCompras = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        rep_diario.setText("reporte diario");
+        rep_diario.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        rep_diario.setText("Reporte de Egresos Diarios");
         rep_diario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rep_diarioActionPerformed(evt);
             }
         });
-        getContentPane().add(rep_diario, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 24, -1, -1));
+        getContentPane().add(rep_diario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 190, 40));
 
-        rep_semanal.setText("reporte semanal");
+        rep_semanal.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        rep_semanal.setText("Reporte de Egresos Semanales");
         rep_semanal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rep_semanalActionPerformed(evt);
             }
         });
-        getContentPane().add(rep_semanal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+        getContentPane().add(rep_semanal, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 210, 40));
 
-        rep_mensual.setText("reporte mensual");
+        rep_mensual.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        rep_mensual.setText("Reporte de Egresos Mensuales");
         rep_mensual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rep_mensualActionPerformed(evt);
             }
         });
-        getContentPane().add(rep_mensual, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 24, -1, -1));
+        getContentPane().add(rep_mensual, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 210, 40));
 
-        jButton1.setText("MENU");
+        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton1.setText("Menu");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 90, 40));
 
+        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton2.setText("Reporte Ingresos");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 130, 40));
 
-        jButton3.setText("reporte por tipo de gasto");
+        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton3.setText("Reporte por Tipo de Gasto");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 180, 40));
 
-        reporteCompras.setText("reporte de compras");
+        reporteCompras.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        reporteCompras.setText("Reporte de Compras");
         reporteCompras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reporteComprasActionPerformed(evt);
             }
         });
-        getContentPane().add(reporteCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
+        getContentPane().add(reporteCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 150, 40));
+
+        jLabel1.setFont(new java.awt.Font("Century", 1, 36)); // NOI18N
+        jLabel1.setText("Reportes");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 170, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -103,7 +119,7 @@ public class Reportes extends javax.swing.JFrame {
         // TODO add your handling code here:
         JTextField field1 = new JTextField();
         
-        Object[] fields = { "ingresa el dia del que necesitas el reporte", field1};
+        Object[] fields = { "Ingresa el día del que necesitas el reporte", field1};
 
         JOptionPane.showConfirmDialog(null, fields, "buscador dias", JOptionPane.OK_CANCEL_OPTION);
         int temp1 = 0;
@@ -117,9 +133,9 @@ public class Reportes extends javax.swing.JFrame {
     private void rep_mensualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rep_mensualActionPerformed
         JTextField field1 = new JTextField();
         
-        Object[] fields = { "ingresa el dia del que necesitas el reporte", field1};
+        Object[] fields = { "Ingresa el día del que necesitas el reporte", field1};
 
-        JOptionPane.showConfirmDialog(null, fields, "buscador dias", JOptionPane.OK_CANCEL_OPTION);
+        JOptionPane.showConfirmDialog(null, fields, "Buscador días", JOptionPane.OK_CANCEL_OPTION);
         int temp1 = 2;
         int temp2 = Integer.parseInt(field1.getText());
         GeneradorReportes gastoDiario = new GeneradorReportes();
@@ -130,9 +146,9 @@ public class Reportes extends javax.swing.JFrame {
         // TODO add your handling code here:
         JTextField field1 = new JTextField();
         
-        Object[] fields = { "ingresa el dia del que necesitas el reporte", field1};
+        Object[] fields = { "Ingresa el día del que necesitas el reporte", field1};
 
-        JOptionPane.showConfirmDialog(null, fields, "buscador dias", JOptionPane.OK_CANCEL_OPTION);
+        JOptionPane.showConfirmDialog(null, fields, "Buscador días", JOptionPane.OK_CANCEL_OPTION);
         int temp1 = 1;
         int temp2 = Integer.parseInt(field1.getText());
         GeneradorReportes gastoDiario = new GeneradorReportes();
@@ -150,13 +166,15 @@ public class Reportes extends javax.swing.JFrame {
         // TODO add your handling code here:
            JTextField field1 = new JTextField();
         
-        Object[] fields = { "ingresa el dia del que necesitas el reporte de ingresos", field1};
+        Object[] fields = { "Ingresa el día del que necesitas el reporte de ingresos", field1};
 
-        JOptionPane.showConfirmDialog(null, fields, "buscador dias", JOptionPane.OK_CANCEL_OPTION);
+        JOptionPane.showConfirmDialog(null, fields, "Buscador de dias", JOptionPane.OK_CANCEL_OPTION);
         int temp1 = 3;
         int temp2 = Integer.parseInt(field1.getText());
         GeneradorReportes gastoDiario = new GeneradorReportes();
         gastoDiario.obtenerGastosDiarios(temp2, temp1); 
+        
+ 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -164,7 +182,7 @@ public class Reportes extends javax.swing.JFrame {
         JTextField field1 = new JTextField();
         JTextField field2 = new JTextField();
         
-        Object[] fields = {"ingresa si quieres el reporte diario(0)\n semanal(1)\n mensual(2)",field1, "ingresa el tipo de gasto a buscar", field2};
+        Object[] fields = {"Ingresa si quieres el reporte \n Diario(0)\n Semanal(1)\n Mensual(2)",field1, "Ingresa el tipo de gasto a buscar: ", field2};
 
         JOptionPane.showConfirmDialog(null, fields, "buscador tipo de gasto", JOptionPane.OK_CANCEL_OPTION);
         int temp1 = Integer.parseInt(field1.getText());
@@ -176,17 +194,9 @@ public class Reportes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void reporteComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteComprasActionPerformed
-        //JTextField field1 = new JTextField();
-        //JTextField field2 = new JTextField();
-        
-        //Object[] fields = {"ingresa si quieres el reporte diario(0)\n semanal(1)\n mensual(2)",field1, "ingresa el tipo de gasto a buscar", field2};
-
-        //JOptionPane.showConfirmDialog(null, fields, "buscador tipo de gasto", JOptionPane.OK_CANCEL_OPTION);
-        //int temp1 = Integer.parseInt(field1.getText());
-        //String temp2 = field2.getText();
-        
-        GeneradorReportesCompras reportegasto = new GeneradorReportesCompras();
-        reportegasto.obtenercompras();
+       
+        GeneradorReportesCompras reportecompra = new GeneradorReportesCompras();
+        reportecompra.obtenercompras();
         
     }//GEN-LAST:event_reporteComprasActionPerformed
 
@@ -234,6 +244,7 @@ public class Reportes extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton rep_diario;
     private javax.swing.JButton rep_mensual;
     private javax.swing.JButton rep_semanal;
