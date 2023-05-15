@@ -10,6 +10,12 @@ import java.io.FileOutputStream;
 import java.sql.*;
 import java.util.Scanner;
 import javax.swing.*;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+  
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Table;
 
 
 public class GeneradorReportes {
@@ -72,7 +78,7 @@ public class GeneradorReportes {
                     System.out.println("Tipo : " + tipoIngreso);
                     System.out.println("Monto : " + montoIngreso);
                     
-                BufferedOutputStream bos= new BufferedOutputStream(new FileOutputStream("Reportes.txt"));
+                /*BufferedOutputStream bos= new BufferedOutputStream(new FileOutputStream("Reportes.txt"));
                 //BufferedOutputStream bos= new BufferedOutputStream(new FileOutputStream("PruebaP.pdf"));
 
                 DataOutputStream dos= new DataOutputStream(bos);
@@ -81,8 +87,8 @@ public class GeneradorReportes {
                              "\n Tipo: " + tipoIngreso + 
                              "\n Monto: " + montoIngreso);
                 dos.close();
-                    System.out.println("Recibo impreso");
-                         
+                    System.out.println("Recibo impreso");*/
+
                 }
                 
             }
