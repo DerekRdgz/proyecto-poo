@@ -48,13 +48,13 @@ public class pantalla_principal extends javax.swing.JFrame {
         jLabel1.setText("Menu Principal");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 140, 40));
 
-        jButton1.setText("ingresar un dato nuevo");
+        jButton1.setText("ingresar una compra");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
 
         mensuales.setText("Gastos mensuales");
         mensuales.addActionListener(new java.awt.event.ActionListener() {

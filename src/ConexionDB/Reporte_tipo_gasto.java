@@ -58,14 +58,15 @@ public class Reporte_tipo_gasto {
 
             while (rs.next()) {
                 String tipoIngreso = rs.getString(temp2[queseando][1]);
-                //if(Tipogasto == tipoIngreso){
+                if(Tipogasto.equals(tipoIngreso)){
+                
                 String idIngreso = rs.getString(temp2[queseando][0]);
                 String montoIngreso = rs.getString(temp2[queseando][2]);
 
                     System.out.println("ID : " + idIngreso);
                     System.out.println("Tipo : " + tipoIngreso);
                     System.out.println("Monto : " + montoIngreso);
-                //}
+                }
             }
             rs.close();
             pst.close();

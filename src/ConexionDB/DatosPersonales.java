@@ -52,6 +52,11 @@ public class DatosPersonales extends javax.swing.JFrame {
         devol = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         tipo_pago = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        ganancia = new javax.swing.JTextField();
+        fac_vent = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -125,7 +130,7 @@ public class DatosPersonales extends javax.swing.JFrame {
                 btngualdarActionPerformed(evt);
             }
         });
-        getContentPane().add(btngualdar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 560, -1, -1));
+        getContentPane().add(btngualdar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 620, -1, -1));
 
         jLabel8.setText("mermas del producto");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
@@ -178,54 +183,82 @@ public class DatosPersonales extends javax.swing.JFrame {
         getContentPane().add(fac_comp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 180, -1));
 
         jLabel15.setText("incremento de compra%");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
 
         incre_comp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 incre_compActionPerformed(evt);
             }
         });
-        getContentPane().add(incre_comp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 180, -1));
+        getContentPane().add(incre_comp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 180, -1));
 
         jLabel16.setText("incremento de venta%");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, -1, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, -1, -1));
 
         incre_vent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 incre_ventActionPerformed(evt);
             }
         });
-        getContentPane().add(incre_vent, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 180, -1));
+        getContentPane().add(incre_vent, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, 180, -1));
 
         jLabel17.setText("alamcen");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, -1, -1));
 
         almacen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 almacenActionPerformed(evt);
             }
         });
-        getContentPane().add(almacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 180, -1));
+        getContentPane().add(almacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 530, 180, -1));
 
         jLabel18.setText("devoluciones");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, -1, -1));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, -1, -1));
 
         devol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 devolActionPerformed(evt);
             }
         });
-        getContentPane().add(devol, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, 180, -1));
+        getContentPane().add(devol, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 560, 180, -1));
 
         jLabel19.setText("tipo de pago");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, -1, -1));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, -1, -1));
 
         tipo_pago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tipo_pagoActionPerformed(evt);
             }
         });
-        getContentPane().add(tipo_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 530, 180, -1));
+        getContentPane().add(tipo_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 590, 180, -1));
+
+        jButton1.setText("Menu");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 620, -1, -1));
+
+        ganancia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gananciaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ganancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 180, -1));
+
+        fac_vent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fac_ventActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fac_vent, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 180, -1));
+
+        jLabel13.setText("factura de venta");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
+
+        jLabel14.setText("ganancia");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -282,8 +315,8 @@ public class DatosPersonales extends javax.swing.JFrame {
                     pst.setString(9, fech_comp.getText());
                     pst.setString(10,fech_vent.getText());
                     pst.setString(11,fac_comp.getText());
-                    pst.setString(12,null);
-                    pst.setString(13,null);
+                    pst.setString(12,fac_vent.getText());
+                    pst.setString(13,ganancia.getText());
                     pst.setString(14,incre_comp.getText());
                     pst.setString(15,incre_vent.getText());
                     pst.setString(16,almacen.getText());
@@ -345,6 +378,23 @@ public class DatosPersonales extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tipo_pagoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        pantalla_principal pp = new pantalla_principal();
+        pp.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void gananciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gananciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gananciaActionPerformed
+
+    private void fac_ventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fac_ventActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fac_ventActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -389,15 +439,20 @@ public class DatosPersonales extends javax.swing.JFrame {
     private javax.swing.JTextField cost_vent;
     private javax.swing.JTextField devol;
     private javax.swing.JTextField fac_comp;
+    private javax.swing.JTextField fac_vent;
     private javax.swing.JTextField fech_comp;
     private javax.swing.JTextField fech_vent;
+    private javax.swing.JTextField ganancia;
     private javax.swing.JTextField id_producto;
     private javax.swing.JTextField incre_comp;
     private javax.swing.JTextField incre_vent;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
